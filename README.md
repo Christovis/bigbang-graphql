@@ -1,4 +1,4 @@
-# GraphQL for Bigbang
+# GraphQL for [Bigbang](https://github.com/datactive/bigbang)
 
 # Construction Instructions
 
