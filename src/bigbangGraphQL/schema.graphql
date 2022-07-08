@@ -1,0 +1,52 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Email {
+    mimeVersion: String!
+    senderAdress: String!
+    dateTime: String!
+    replyTo: String!
+    messageID: String!
+    subject: String!
+    fromAdress: String!
+    inReplyTo: String!
+    contentType: String!
+    commentsTo: String!
+    archivedAt: String!
+}
+
+type EmailResult {
+    success: Boolean!
+    errors: [String]
+    email: Email
+}
+
+type EmailsResult {
+    success: Boolean!
+    errors: [String]
+    emails: [Email]
+}
+
+type Query {
+    listEmails: EmailsResult!
+    getEmail(messageID: String!): EmailResult!
+}
+
+type Mutation {
+    createEmail(
+        mimeVersion: String!,
+        senderAdress: String!,
+        dateTime: String!,
+        replyTo: String!,
+        messageID: String!,
+        subject: String!,
+        fromAdress: String!,
+        inReplyTo: String!,
+        contentType: String!,
+        commentsTo: String!,
+        archivedAt: String!
+    ): EmailResult!
+    deleteEmail(messageID: String!): EmailResult!
+}

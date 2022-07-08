@@ -1,0 +1,48 @@
+query {
+  listEmails {
+    success
+    errors
+    emails{
+      dateTime
+    }
+  }
+}
+
+query GetPost {
+  getEmail(messageID: "9279761651169021.WA.juergen.kueblerdaimler.com@list.etsi.org") {
+    email {
+      fromAdress
+    }
+    success
+    errors
+  }
+}
+
+mutation CreateNewPost {
+  createEmail(
+    archivedAt: '<https://list.etsi.org/scripts/wa.exe?A2=3GPP_TSG_SA_DRAFTS;de6c4a3c.1912B&S=>',
+    senderAdress: '3GPP_TSG_SA_DRAFTS 3GPP_TSG_SA_DRAFTS@LIST.ETSI.ORG',
+    fromAdress: 'Shabnam Sultana shabnam.sultana@ERICSSON.COM',
+    replyTo: 'Shabnam Sultana shabnam.sultana@ERICSSON.COM',
+    subject: "Test mutation",
+    inReplyTo: 'VI1PR10MB1663A4DF7309758B8FCA075483540@VI1PR10MB1663.EURPRD10.PROD.OUTLOOK.COM',
+    commentsTo: '"Walewski, Joachim" joachim.walewski@SIEMENS.COM',
+    contentType: 'text/plain; charset="utf-8"; Content-Type="multipart/signed"',
+    mimeVersion: "1.0") {
+    email {
+      messageID
+      archivedAt
+      senderAdress
+      fromAdress
+      dateTime
+      replyTo
+      subject
+      inReplyTo
+      commentsTo
+      contentType
+      mimeVersion
+    }
+    success
+    errors
+  }
+}

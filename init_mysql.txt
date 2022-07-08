@@ -1,0 +1,17 @@
+USE bigbang_test;
+CREATE TABLE email (
+mimeVersion TEXT,
+senderAdress TEXT,
+dateTime TEXT,
+replyTo TEXT,
+messageID TEXT,
+subject TEXT,
+fromAdress TEXT,
+inReplyTo TEXT,
+contentType TEXT,
+commentsTo TEXT,
+archivedAt TEXT
+);
+LOAD DATA INFILE '/private/var/lib/mysql-files/bigbang_test.csv'
+INTO TABLE email FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
